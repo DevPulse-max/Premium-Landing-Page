@@ -1,0 +1,6 @@
+{
+  "name": "Velocity",
+  "description": "High-converting premium landing pages designed to help startups launch faster and convert better.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

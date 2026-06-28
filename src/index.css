@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --color-brand: #ff7a1a;
+  --color-brand-glow: #ff8c3a;
+  --color-brand-light: #ffb15c;
+  --color-bg-dark: #0e0907;
+  --color-card-dark: #18110c;
+  --color-card-dark-light: #1e1510;
+  --radius-card: 28px;
+}
+
+@layer base {
+  body {
+    background-color: #0e0907;
+    color: #f5f5f5;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0e0907;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2b1d14;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3c2a1e;
+  }
+}
+
+/* Luxury Background Grids and Effects */
+.dotted-grid {
+  background-size: 32px 32px;
+  background-image: radial-gradient(rgba(255, 122, 26, 0.04) 1px, transparent 1px);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Glassmorphism styles and Gold Border Hover Animation */
+.glass-panel:not(nav),
+.glass-panel-highlight {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.glass-panel:not(nav)::after,
+.glass-panel-highlight::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px; /* Gold border thickness */
+  background: linear-gradient(135deg, #d4af37, #f39c12, #ffd700, #ffb15c, #d4af37, #f1c40f);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+@keyframes goldGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glass-panel:not(nav):hover::after,
+.glass-panel-highlight:hover::after {
+  opacity: 1;
+  animation: goldGradientFlow 4s ease infinite;
+}
+
+.glass-panel:not(nav):hover,
+.glass-panel-highlight:hover {
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.16), 0 0 15px rgba(253, 208, 23, 0.05);
+  border-color: transparent !important;
+}
+
+.glass-panel {
+  background: rgba(24, 17, 12, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-highlight {
+  background: rgba(30, 21, 16, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 122, 26, 0.2);
+  box-shadow: 0 0 30px rgba(255, 122, 26, 0.06);
+}
+
+/* Premium Gold Gradient Button Style */
+.gold-gradient-btn {
+  background: linear-gradient(135deg, #d4af37 0%, #f1c40f 45%, #f39c12 100%) !important;
+  background-size: 200% auto !important;
+  color: #0e0907 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gold-gradient-btn:hover {
+  background-position: right center !important;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.55), 0 0 12px rgba(253, 208, 23, 0.3) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+.glow-btn-orange {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-btn-orange::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #ff7a1a, #ffb15c);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Ambient glow blobs */
+.ambient-glow-orange {
+  filter: blur(140px);
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.15) 0%, rgba(255, 122, 26, 0) 70%);
+}
+
+.ambient-glow-orange-strong {
+  filter: blur(100px);
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.22) 0%, rgba(255, 122, 26, 0) 65%);
+}
+
+.ambient-glow-secondary {
+  filter: blur(120px);
+  background: radial-gradient(circle, rgba(255, 177, 92, 0.12) 0%, rgba(255, 177, 92, 0) 70%);
+}
+
+/* Animations and tweaks */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Custom Cursor Global Reset for Premium Desktop Experience */
+@media (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Premium Scroll Navigation Glassy Effect */
+.scrolled-nav-glass {
+  background: rgba(24, 17, 12, 0.45) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1px solid rgba(255, 215, 0, 0.12) !important; /* Subtle premium golden highlight border */
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.65), 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(212, 175, 55, 0.04) !important;
+}
+
