@@ -101,7 +101,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="block text-white"
           >
-            Launch faster.
+            Premium
           </motion.span>
           <motion.span
             initial={{ opacity: 0, filter: 'blur(8px)', y: 30 }}
@@ -109,7 +109,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="block mt-2 bg-gradient-to-r from-white via-[#ff7a1a] to-[#ffb15c] bg-clip-text text-transparent"
           >
-            Convert better.
+            Landing Page.
           </motion.span>
         </h1>
 
@@ -120,7 +120,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-base sm:text-lg md:text-xl text-[#a9a9a9] max-w-[620px] mb-10 font-medium leading-relaxed"
         >
-          We Design Landing Pages That Help Founders Launch Faster And Grow Smarter.
+          We design ultimate, high-converting premium landing pages that help founders launch faster, look elite, and grow smarter.
         </motion.p>
 
         {/* CTA Buttons */}

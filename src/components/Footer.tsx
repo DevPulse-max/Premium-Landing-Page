@@ -27,8 +27,34 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="md:col-span-5 flex flex-col items-start gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#ff7a1a] to-[#ffb15c] p-1.5 shadow-[0_0_15px_rgba(255,122,26,0.3)] flex items-center justify-center text-white">
-                <span className="font-extrabold text-sm">▲</span>
+              <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-[#1c120e] to-[#0e0907] p-1.5 border border-white/10 shadow-[0_0_20px_rgba(255,122,26,0.12)] hover:shadow-[0_0_25px_rgba(255,122,26,0.3)] transition-all duration-300 overflow-hidden">
+                <svg className="w-full h-full" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="footOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ff9f43" />
+                      <stop offset="50%" stopColor="#ff7a1a" />
+                      <stop offset="100%" stopColor="#d35400" />
+                    </linearGradient>
+                    <radialGradient id="footSparkleGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#ffd700" stopOpacity="1" />
+                      <stop offset="100%" stopColor="#ff7a1a" stopOpacity="0" />
+                    </radialGradient>
+                    <linearGradient id="footStarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" />
+                      <stop offset="100%" stopColor="#ffd700" />
+                    </linearGradient>
+                  </defs>
+                  <g transform="translate(10, 5)">
+                    <path d="M 136,165 C 136,153 145,145 156,145 L 210,145 C 219,145 226,150 229,158 L 308,367 C 312,377 304,388 293,388 L 246,388 C 238,388 231,383 228,375 L 139,180 C 137,175 136,170 136,165 Z" fill="url(#footOrangeGrad)" />
+                    <path d="M 252,145 L 348,145 C 358,145 364,155 360,163 L 310,252 C 305,260 293,260 288,252 L 248,163 C 244,155 250,145 252,145 Z" fill="url(#footOrangeGrad)" />
+                    <path d="M 282,285 C 282,277 292,273 298,279 L 358,339 C 365,346 360,358 350,358 L 298,358 C 289,358 282,351 282,342 Z" fill="url(#footOrangeGrad)" />
+                  </g>
+                  <g transform="translate(356, 150)">
+                    <circle cx="0" cy="0" r="55" fill="url(#footSparkleGlow)" opacity="0.9" />
+                    <path d="M -75,0 Q 0,0 0,-75 Q 0,0 75,0 Q 0,0 0,75 Q 0,0 -75,0 Z" fill="url(#footStarGrad)" />
+                    <circle cx="0" cy="0" r="7" fill="#ffffff" />
+                  </g>
+                </svg>
               </div>
               <span className="text-lg font-bold tracking-tight text-white font-display">
                 Velocity

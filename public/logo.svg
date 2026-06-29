@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="darkBackground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#140d0a" />
+      <stop offset="100%" stop-color="#090604" />
+    </linearGradient>
+
+    <!-- Golden-Orange Premium Gradient -->
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9f43" />
+      <stop offset="50%" stop-color="#ff7a1a" />
+      <stop offset="100%" stop-color="#d35400" />
+    </linearGradient>
+
+    <!-- Gold Border Gradient -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="30%" stop-color="#f1c40f" />
+      <stop offset="70%" stop-color="#f39c12" />
+      <stop offset="100%" stop-color="#ffb15c" />
+    </linearGradient>
+
+    <!-- Sparkle Radial Glow -->
+    <radialGradient id="sparkleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="1" />
+      <stop offset="30%" stop-color="#ff7a1a" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Star Core Gradient -->
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+
+    <!-- Neon Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur1" />
+      <feGaussianBlur stdDeviation="6" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Velvet Charcoal-Orange Rounded Card Base -->
+  <rect width="512" height="512" rx="116" fill="url(#darkBackground)" stroke="rgba(255, 122, 26, 0.08)" stroke-width="2" />
+
+  <!-- Glowing Gold/Orange Border -->
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="none" stroke="url(#goldGradient)" stroke-width="3" opacity="0.65" />
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="none" stroke="url(#orangeGradient)" stroke-width="6" opacity="0.3" filter="url(#glow)" />
+
+  <!-- Center Stylized 'V' Brandmark Group -->
+  <g filter="url(#glow-heavy)" transform="translate(10, 5)">
+    <!-- 1. Left Diagonal Wing -->
+    <path d="M 136,165 C 136,153 145,145 156,145 L 210,145 C 219,145 226,150 229,158 L 308,367 C 312,377 304,388 293,388 L 246,388 C 238,388 231,383 228,375 L 139,180 C 137,175 136,170 136,165 Z" fill="url(#orangeGradient)" />
+
+    <!-- 2. Upper Right Down-Pointing Triangle -->
+    <path d="M 252,145 L 348,145 C 358,145 364,155 360,163 L 310,252 C 305,260 293,260 288,252 L 248,163 C 244,155 250,145 252,145 Z" fill="url(#orangeGradient)" />
+
+    <!-- 3. Bottom Right Hook Accent -->
+    <path d="M 282,285 C 282,277 292,273 298,279 L 358,339 C 365,346 360,358 350,358 L 298,358 C 289,358 282,351 282,342 Z" fill="url(#orangeGradient)" />
+  </g>
+
+  <!-- Sparkle Flare on Top-Right Corner of the V (Targeting the vertex) -->
+  <g transform="translate(356, 150)">
+    <!-- Ambient Flare Glow -->
+    <circle cx="0" cy="0" r="55" fill="url(#sparkleGlow)" opacity="0.85" filter="url(#glow)" />
+    <!-- Golden Spark Rays -->
+    <path d="M -75,0 Q 0,0 0,-75 Q 0,0 75,0 Q 0,0 0,75 Q 0,0 -75,0 Z" fill="url(#starGradient)" />
+    <!-- Secondary Diagonal Rays for extra realism -->
+    <path d="M -45,-45 Q 0,0 45,-45 Q 0,0 45,45 Q 0,0 -45,45 Q 0,0 -45,-45 Z" fill="url(#starGradient)" opacity="0.6" />
+    <!-- Bright White Core -->
+    <circle cx="0" cy="0" r="7" fill="#ffffff" />
+  </g>
+</svg>
