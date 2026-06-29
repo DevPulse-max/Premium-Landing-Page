@@ -21,6 +21,10 @@ export default function Hero() {
   const xSpring = useSpring(mousePosition.x * 30, { stiffness: 100, damping: 20 });
   const ySpring = useSpring(mousePosition.y * 30, { stiffness: 100, damping: 20 });
 
+  // 3D Tilt rotation mapping based on mouse coordinates for elite interactive depth
+  const rotateX = useTransform(ySpring, [-30, 30], [8, -8]);
+  const rotateY = useTransform(xSpring, [-30, 30], [-8, 8]);
+
   // Floating background particles
   const particles = Array.from({ length: 15 });
 
@@ -148,6 +152,176 @@ export default function Hero() {
             See Features
           </button>
         </motion.div>
+      </motion.div>
+
+      {/* Cinematic Live Performance & Conversion HUD (Awwwards-quality Interactive Browser) */}
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        className="w-full max-w-[1000px] mt-16 px-4 relative z-20 group"
+      >
+        {/* Soft moving ambient glow reflection */}
+        <div className="absolute inset-0 -m-8 bg-gradient-to-r from-[#ff7a1a]/12 to-[#ffb15c]/8 rounded-[36px] blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-1000 pointer-events-none" />
+        
+        {/* Glassmorphic Mock Browser Frame */}
+        <div className="w-full rounded-[24px] border border-white/10 bg-[#18110c]/85 shadow-[0_35px_90px_rgba(0,0,0,0.85)] backdrop-blur-3xl overflow-hidden relative">
+          
+          {/* Top Window Navigation Bar */}
+          <div className="flex items-center justify-between px-6 py-4.5 bg-[#110c09] border-b border-white/5">
+            {/* Window Dots */}
+            <div className="flex items-center gap-2">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] shadow-sm shadow-[#ff5f56]/20" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] shadow-sm shadow-[#ffbd2e]/20" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#27c93f] shadow-sm shadow-[#27c93f]/20" />
+            </div>
+            
+            {/* URL Display */}
+            <div className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#18110c] border border-white/5 w-1/2 justify-center text-xs text-[#a9a9a9] font-mono select-none">
+              <span className="text-[#ff7a1a] opacity-80">https://</span>
+              <span className="tracking-wide">velocity.agency/luxury-conversions</span>
+            </div>
+            
+            {/* Server Secure Indicator */}
+            <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#27c93f]/10 border border-[#27c93f]/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#27c93f] animate-pulse" />
+              <span className="text-[10px] font-bold text-[#27c93f] uppercase tracking-wider font-mono">Secure Connection</span>
+            </div>
+          </div>
+          
+          {/* Browser Inside Work Canvas */}
+          <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Box: Perfect Lighthouse Analytics */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div>
+                <span className="text-[10px] font-bold text-[#ff7a1a] uppercase tracking-widest font-mono mb-2 block">TECHNICAL EXCELLENCE</span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display leading-tight">Lighthouse Perfect Score</h3>
+                <p className="text-xs text-[#a9a9a9] mt-2.5 leading-relaxed">
+                  Every page we design delivers an ultra-fast loading speed. This completely avoids visitor bounce, elevates customer trust, and maximizes search engine index visibility on Google.
+                </p>
+              </div>
+              
+              {/* Lighthouse Stats Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Performance', score: 100 },
+                  { label: 'Accessibility', score: 100 },
+                  { label: 'Best Practices', score: 100 },
+                  { label: 'SEO', score: 100 },
+                ].map((stat, idx) => (
+                  <div key={idx} className="bg-[#1e1510]/50 border border-white/5 rounded-2xl p-4 flex flex-col items-center justify-center relative hover:border-[#ff7a1a]/25 transition-all duration-300">
+                    {/* Dial Ring */}
+                    <div className="relative w-16 h-16 flex items-center justify-center mb-3">
+                      <svg className="w-full h-full transform -rotate-90">
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="rgba(255,255,255,0.05)"
+                          strokeWidth="3.5"
+                          fill="transparent"
+                        />
+                        <motion.circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          stroke="#27c93f"
+                          strokeWidth="3.5"
+                          fill="transparent"
+                          strokeDasharray={176}
+                          initial={{ strokeDashoffset: 176 }}
+                          whileInView={{ strokeDashoffset: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.5, delay: 0.7 + (idx * 0.12), ease: 'easeOut' }}
+                        />
+                      </svg>
+                      <span className="absolute text-sm font-black font-display text-[#27c93f]">{stat.score}</span>
+                    </div>
+                    <span className="text-[10px] font-bold text-[#a9a9a9] tracking-wider uppercase font-mono">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right Box: conversion analytics comparison */}
+            <div className="lg:col-span-7 flex flex-col gap-6 bg-[#110c09]/80 border border-white/5 rounded-2xl p-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-[#ff7a1a]/5 blur-3xl pointer-events-none" />
+              
+              <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#ff7a1a]/10 border border-[#ff7a1a]/25 flex items-center justify-center text-[#ff7a1a]">
+                    <Sparkles className="w-4.5 h-4.5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white font-display">Awwwards-Level Experience</h4>
+                    <p className="text-[10px] text-[#a9a9a9] font-mono">Bespoke luxury feel beats basic templates</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-[10px] font-bold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>+320% Avg ROI</span>
+                </div>
+              </div>
+              
+              {/* Chart Bars */}
+              <div className="flex flex-col gap-5">
+                {/* Velocity */}
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between text-[11px] font-semibold font-mono">
+                    <span className="text-white flex items-center gap-1.5">
+                      <span className="text-[#ff7a1a]">✦</span> Velocity Bespoke Experience
+                    </span>
+                    <span className="text-[#ff7a1a] font-bold">6.8% conversion rate</span>
+                  </div>
+                  <div className="w-full h-3.5 rounded-full bg-[#18110c] border border-white/5 overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-gradient-to-r from-[#ff7a1a] via-[#ff8c3a] to-[#ffb15c] rounded-full shadow-[0_0_12px_rgba(255,122,26,0.65)]"
+                      initial={{ width: '0%' }}
+                      whileInView={{ width: '92%' }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 0.9, ease: 'easeOut' }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Standard */}
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex justify-between text-[11px] font-semibold font-mono text-[#a9a9a9]">
+                    <span>Average Ready-Made Templates</span>
+                    <span>1.8% conversion rate</span>
+                  </div>
+                  <div className="w-full h-3.5 rounded-full bg-[#18110c] border border-white/5 overflow-hidden">
+                    <motion.div 
+                      className="h-full bg-[#a9a9a9]/25 rounded-full"
+                      initial={{ width: '0%' }}
+                      whileInView={{ width: '26%' }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 1.1, ease: 'easeOut' }}
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Bottom Badges */}
+              <div className="grid grid-cols-3 gap-3 pt-5 border-t border-white/5 mt-1">
+                {[
+                  { title: 'Honorable Mention', desc: 'Awwwards' },
+                  { title: 'Enterprise Secure', desc: 'SSL Encrypted' },
+                  { title: 'Conversion Audited', desc: 'Verified Results' }
+                ].map((badge, idx) => (
+                  <div key={idx} className="flex flex-col p-3 rounded-xl bg-[#18110c] border border-white/5 items-center text-center hover:border-white/10 transition-colors duration-200">
+                    <span className="text-[10px] font-bold text-[#ff7a1a] uppercase tracking-wider font-display">{badge.title}</span>
+                    <span className="text-[9px] text-[#a9a9a9] font-mono mt-1">{badge.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+          </div>
+        </div>
       </motion.div>
 
       {/* Client Logos / Trust Section */}

@@ -31,53 +31,104 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Velocity Premium Landing Page Design",
-        "image": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/logo.svg",
-        "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app",
-        "url": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app",
-        "telephone": "",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Elite Digital Space",
-          "addressLocality": "Global",
-          "addressRegion": "Worldwide",
-          "postalCode": "10001",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 40.758896,
-          "longitude": -73.98513
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "sameAs": [],
-        "priceRange": "$$$$",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "128"
-        },
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "999.00",
-          "valueAddedTaxIncluded": "true"
-        },
-        "description": "Premium landing page creation and bespoke high-converting digital designs for venture-backed startup founders, designed to turn traffic into paying clients."
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#organization",
+            "name": "Velocity",
+            "url": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app",
+            "logo": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/logo.svg",
+            "description": "Elite premium landing page design agency for tech startups and luxury brands.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "email": "onlinequranclassforkids@gmail.com"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#website",
+            "url": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app",
+            "name": "Velocity Premium Landing Pages",
+            "description": "Premium landing page design for high-growth startups and luxury brands.",
+            "publisher": {
+              "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#organization"
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#service",
+            "serviceType": "Premium Landing Page Design",
+            "provider": {
+              "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#organization"
+            },
+            "areaServed": ["US", "GB", "CA", "AU"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Premium Web Design Plans",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Velocity Standard Plan"
+                  },
+                  "price": "5000.00",
+                  "priceCurrency": "USD"
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Velocity Premium Pro Plan"
+                  },
+                  "price": "12500.00",
+                  "priceCurrency": "USD"
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Premium Web Design Agency",
+                "item": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#why-us"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://ais-pre-45by4pk4koht7t2qzlqh35-793609784920.asia-east1.run.app/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is premium landing page design?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Premium landing page design is a bespoke, fast-loading, highly converting web asset custom-designed to match high-end luxury brand standards. It avoids template lookalikes in favor of custom storytelling, cinematic typography, smooth UX micro-interactions, and conversion rate optimized (CRO) content layouts."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why choose a luxury website design agency?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A luxury website design agency like Velocity builds bespoke digital assets that elevate trust, brand perception, and conversions. It is tailored for startups and businesses looking to appeal to enterprise or high-value clients, raising conversion rates significantly over cheap templated designs."
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>
